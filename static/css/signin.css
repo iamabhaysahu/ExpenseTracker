@@ -1,0 +1,123 @@
+*{
+   margin: 0%;
+   padding: 0%;
+   box-sizing:border-box;
+   font-family: sans-serif;
+
+}
+
+html,body{
+    height:100%;
+    width:100%;
+}
+
+#main{
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#box1{
+    width: 30%;
+    height: 80%;
+    background-color: #F1F6FD;
+    box-shadow: 2px -1px 10px #bbbbbb;
+    display: grid;
+    align-items: center;
+}
+#box2{
+    width: 45%;
+    height: 80%;
+    box-shadow: 2px -1px 10px #bbbbbb;
+}
+#img-1{
+    display: flex;
+    justify-content: center;
+}
+#img-1 img{
+    width: 59%;
+}
+
+#heading{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#paragraph{
+    margin-left: 64px;
+    margin-right: 45px;
+}
+.role-1{
+    display: flex;
+    margin-left: 30px;
+    margin-top: 10px;
+    align-items: center;
+}
+.icon{
+    border: 2px solid rgb(110, 110, 110);
+    border-radius: 9px;
+    width: 45px;
+    height: 52px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#create-acc h2{
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+#paragraph-1{
+    display: flex;
+    justify-content: center;
+}
+#paragraph-1 p{
+    display: flex;
+    justify-content: center;
+    margin-top: 3px;
+}
+
+.input-box{
+    width: 100%;
+    height: 40px; 
+    margin-top: 10px;
+    font-size: large;
+    
+}
+
+.form-1{
+    margin: 24px 58px;
+}
+
+.form-1 label{
+    font-size: larger;
+}
+
+#login-btn{
+    height: 40px;
+    display: grid;
+    font-size: larger;
+    margin: 7px 58px
+}
+#btn-login{
+    color: #0B59E3;
+    background-color: #ffffff;
+    border-radius: 10px;
+    border: 2px solid #0B59E3;
+    font-size: medium;
+    font-weight: 600;
+}
+#btn-login:hover{
+    color: #ffffff;
+    background-color: #0B59E3;
+    border: 2px solid ;
+    transition-duration: 0.5s;
+}
+#msg{
+    color: red;
+    margin-left: 60px;
+}

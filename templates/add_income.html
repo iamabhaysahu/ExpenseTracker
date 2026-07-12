@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>add income</title>
+    <link rel="stylesheet" href="{{url_for('static',filename='css/add_income.css')}}">
+
+</head>
+<body>
+        <div id="main">
+            <div id="middle-part">
+                <div id="heading">
+                    <div id="logo"> <img src="{{ url_for('static', filename='money.png') }}" width="80%"></div>
+                        <div id="upper-heading">
+                            <h2>Add Income</h2>
+                            <p style="margin-top: 5px;">Enter your total monthly income</p>
+                        </div>
+                </div>
+                    <div id="money-input">
+                        <label>Add Income</label><br>
+                        <div id="icon">  
+                            <form method="post">
+                                {{form.hidden_tag()}}
+                                {{form.income(placeholder="  Enter Your Income...")}}
+                        </div>
+                    </div>
+                <div id="btn-1">
+                    <button type="submit">Save Income</button>
+            </div>
+        </form>
+            <div id="link">
+                <a href="{{url_for('profile.profile_')}}">back to profile</a>
+            </div>
+
+        </div>
+        </div>
+</body>
+</html>
+
+

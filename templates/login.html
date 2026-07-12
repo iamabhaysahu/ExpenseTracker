@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login-page</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='css/login.css')}}">
+</head>
+<body>
+    <div id="main">
+            <div id="box-1">
+                <div id="heading">
+                    <h2>Welcome Back!</h2>
+                </div>
+                <div id="paragraph">
+                    <p>Login to continue and manage
+                        your <br> expenses easily.</p>
+                </div>
+                <div id="img-1">
+                    <img src="{{ url_for('static', filename='wallet-img.png') }}">
+                </div>
+            </div>
+            <!-- box 2 -->
+        <div id="box-2">
+            <div id="login"><h2>LOGIN</h2></div>
+            <form method="post">
+            {{form.hidden_tag()}}
+
+            <div id="form-1">
+                <label >Email</label> <br>
+                {{form.email(class="input-box")}}
+            </div>
+            <div id="form-2" >
+                <label >Password</label> <br>
+                {{form.password(class="input-box")}}
+            </div>
+            <div >
+            {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                    {% for msg in messages %}
+                       <div id="msg"> {{msg}}</div>
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
+            </div>
+            <div id="btn-1">
+                <a href="{{url_for('login.forget')}}" id="forget">Forget Password</a>
+            </div>
+            <div id="login-btn">
+                {{form.submit(id="btn-login")}}
+            </div>
+        </form>
+            <form action="{{url_for('signin.signin_')}}" method="get">
+            <div id="create-btn">
+                    <button>Create New Account</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

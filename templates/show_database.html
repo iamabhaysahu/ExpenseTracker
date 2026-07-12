@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>show database</title>
+   <link rel="stylesheet" href="{{url_for('static', filename='css/show_database.css')}}">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.9.0/fonts/remixicon.css" rel="stylesheet"/>
+
+</head>
+<body>
+    <div id="main">
+        <div id="navbar">
+            <div id="logo_text">
+                <a href="{{url_for('profile.profile_')}}" style="text-decoration: none; color:black">ExpenseTracker</a>
+            </div>
+            <div id="home">
+                <a href="{{url_for('profile.profile_')}}"  id="btn-1">Profile</a>
+            </div>
+        
+        </div>
+        <div id="box1">
+            <div id="table-show">
+                <div id="row-1">
+                    <h2>All Expenses</h2>
+                </div>
+                <div id="row-2">
+                    <p>Here all your recorded Expenses</p>
+                </div>
+                <form action="{{url_for('profile.filter_data')}}" method="get">
+                    <div id="row-3">
+                    <input type="search" name="search" class="boxes" placeholder="  Search by Note or Category..">
+                    <select name="categories" class="boxes">
+                        <option value="">All</option>
+                        <option value="Food">Food</option>
+                        <option value="Travel">Travel</option>
+                        <option value="Shopping">Shopping</option>
+                        <option value="Other">Other</option>
+                    </select>
+                    <input type="date" class="boxes" name="datetime">
+                    <button type="submit">Filter</button> 
+                </form>
+                    <!-- <button>Filter</button> -->
+                </div>
+                <div id="table-box">
+                    <div id="table">
+                        <div id="expence-box-2">
+                            <div id="expenses-record">
+                                <table>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Date</th>
+                                    <th>Amount</th>
+                                    <th>Category</th>
+                                    <th>Note</th>
+                                    <th>Delete</th>
+                                    <th>Edit</th>
+                                </tr>
+                                {% for item in user_item %}
+                                <tr>
+                                    <td>{{loop.index}}</td>
+                                    <td>{{item.datetime.strftime("%d-%m-%Y %I:%M")}}</td>
+                                    <td>{{item.amount}}</td>
+                                    <td>{{item.categories}}</td>
+                                    <td>{{item.note}}</td>
+                                    <form action="{{url_for('profile.delete_task',task_id = item.id)}}" method="post">
+                                        <td><button type="submit" ><i class="ri-delete-bin-line"></i>Delete</button></td>
+                                    </form>
+                                    <form action="{{url_for('profile.modified_task',task_id = item.id)}}" method="get">
+                                        <td><button type="submit"><i class="ri-edit-2-line">EDIT</i></button></i></td>
+                                    </form>
+                                </tr>
+                                {% endfor %}
+                                </table>
+                                <div id="box-4">
+                                    <div id="showingno">
+                                        <p>showing 1 to 9 entries</p>
+                                    </div>
+                                    {% if user_item.has_prev %}
+                                    <div id="pageno">
+                                        <a href="{{url_for('profile.show_database',page=user_item.prev_num)}}" >
+                                            previous
+                                        </a>
+                                    {% endif %}
+                                    {% if user_item.has_next %}
+                                    <div id="pageno">
+                                        <a href="{{url_for('profile.show_database',page=user_item.next_num)}}" >
+                                            Next
+                                        </a>
+                                    {% endif %}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

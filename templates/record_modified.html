@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>add income</title>
+    <link rel="stylesheet" href="{{url_for('static',filename='css/record_modified.css')}}">
+
+</head>
+<body>
+        <div id="main">
+            <div id="middle-part">
+                <div id="heading">
+                    <div id="logo"> <img src="{{ url_for('static', filename='money.png') }}" width="80%"></div>
+                        <div id="upper-heading">
+                            <h2>New Password</h2>
+                            <p style="margin-top: 5px;">Change your password </p>
+                        </div>
+                </div>
+                <form method="post">        
+                    {{form.hidden_tag()}}
+                    <div id="money-input">
+                        <div id="icon">
+                            
+                                <label>Amount</label>
+                                {{form.amount}} 
+                            
+                                <div id="cate">
+                                    <label>Categories</label><br>
+                                    {{form.categories(id='categories')}}
+                                </div>
+                                <label>Note</label>
+                                {{form.note}}  
+                                <div id="note"> 
+                                    <label>Date/Time</label>
+                                    {{form.datetime}}
+                                </div>
+                        </div>
+                    </div>
+                <div id="btn-1">
+                    <button type="submit">Change details</button>
+
+            </div>
+        </form>
+            
+            <div id="link">
+                <a href="{{url_for('profile.profile_')}}">back to profile</a>
+            </div>
+
+        </div>
+        </div>
+</body>
+</html>
+
+
