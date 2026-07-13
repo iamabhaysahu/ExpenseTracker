@@ -118,32 +118,5 @@ def filter_data():
     
     
     user_item = query.order_by(profile_db.id.desc()).all()
-
-
+ 
     return render_template("show_database.html",user_item = user_item)
-
-    # if not note and not categories and not date:
-    #     return redirect(url_for("profile.show_database"))
-    # elif date and not categories and not note:
-    #     user_item = profile_db.query.filter(profile_db.user_id ==session["user_id"],func.date(profile_db.datetime) == date).all()
-    # elif note and not categories:
-    #     user_item = profile_db.query.filter(profile_db.user_id == session["user_id"],profile_db.note.ilike(f"%{note}%")).all()
-
-    # elif not note and categories:
-    #     user_item = profile_db.query.filter(profile_db.user_id == session["user_id"],profile_db.categories == categories).all()
-        
-    # else:
-    #     user_item = profile_db.query.filter(profile_db.user_id == session["user_id"],profile_db.note.ilike(f"%{note}%"),profile_db.categories == categories).all()
-    # return render_template("show_database.html",user_item = user_item)
-
-    
-
-# IMPORTANT NOTE
-# jab hum aggrate functions use karte hai to agar hum 1 chiz hi use kar rahe hai to .scalar() use karte hai 
-# Kyunki id Primary Key hai aur get() hamesha Primary Key se ek hi record nikalta hai.
-
-# db = SQLAlchemy(app)
-# Yahan app ko argument ke roop me pass kiya hai.
-
-# Q: API me database object ko direct return kyu nahi kar sakte?
-# A: Kyuki browser SQLAlchemy object nahi samajhta. Browser ko JSON format me data chahiye.
